@@ -120,7 +120,7 @@ function! s:Match_wrapper(word, forward, mode) range
     execute "let match_words =" b:match_words
   endif
   let default = escape(&mps, '[$^.*~\\/?]') . (strlen(&mps) ? "," : "") .
-    \ '\/\*:\*\/,#if\%(def\)\=:#else\>:#elif\>:#endif\>'
+    \ '\/\*:\*\/,#\s*if\%(def\)\=:#\s*else\>:#\s*elif\>:#\s*endif\>'
   let match_words = match_words . (strlen(match_words) ? "," : "") . default
 " Thanks to Preben "Peppe" Guldberg and Bram Moolenaar for this suggestion!
   if (match_words != s:last_words) || (&mps != s:last_mps) ||
@@ -357,7 +357,7 @@ fun! s:InsertRefs(groupBR, prefix, group, suffix, matchline)
       execute s:Ref(ini, d, "start", "len")
       let ini = strpart(ini, 0, start) . backref . strpart(ini, start+len)
       let tailBR = substitute(tailBR, s:notslash . '\zs\\' . d,
-	\ escape(backref, '\\'), 'g')
+	\ escape(backref, '\\&'), 'g')
     endif
     let d = d-1
   endwhile
@@ -649,7 +649,7 @@ fun! s:MultiMatch(spflag, mode)
   "   s:all	regexp based on s:pat and the default groups
   " This part is copied and slightly modified from s:Match_wrapper().
   let default = escape(&mps, '[$^.*~\\/?]') . (strlen(&mps) ? "," : "") .
-    \ '\/\*:\*\/,#if\%(def\)\=:#else\>:#elif\>:#endif\>'
+    \ '\/\*:\*\/,#\s*if\%(def\)\=:#\s*else\>:#\s*elif\>:#\s*endif\>'
   " Allow b:match_words = "GetVimMatchWords()" .
   if b:match_words =~ ":"
     let match_words = b:match_words
@@ -809,5 +809,6 @@ fun! s:ParseSkip(str)
 endfun
 
 let &cpo = s:save_cpo
+unlet s:save_cpo
 
 " vim:sts=2:sw=2:
