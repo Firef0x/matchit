@@ -47,38 +47,37 @@ let s:last_words = ":"
 let s:save_cpo = &cpo
 set cpo&vim
 
-nnoremap <silent> <script> <Plug>Matchit-n_%   :<C-U>call <SID>Match_wrapper('',1,'n')<CR>
-nnoremap <silent> <script> <Plug>Matchit-n_g%  :<C-U>call <SID>Match_wrapper('',0,'n')<CR>
-vnoremap <silent> <script> <Plug>Matchit-v_%   :<C-U>call <SID>Match_wrapper('',1,'v')<CR>m'gv``
-vnoremap <silent> <script> <Plug>Matchit-v_g%  :<C-U>call <SID>Match_wrapper('',0,'v')<CR>m'gv``
-onoremap <silent> <script> <Plug>Matchit-o_%  v:<C-U>call <SID>Match_wrapper('',1,'o')<CR>
-onoremap <silent> <script> <Plug>Matchit-o_g% v:<C-U>call <SID>Match_wrapper('',0,'o')<CR>
+" % mappings
+nnoremap <silent> <script> <Plug>Matchit-%   :<C-U>call <SID>Match_wrapper('',1,'n')<CR>
+vnoremap <silent> <script> <Plug>Matchit-%   :<C-U>call <SID>Match_wrapper('',1,'v')<CR>m'gv``
+onoremap <silent> <script> <Plug>Matchit-%  v:<C-U>call <SID>Match_wrapper('',1,'o')<CR>
 
-nnoremap <unique> <script> g% <Plug>Matchit-n_g%
-vnoremap <unique> <script> %  <Plug>Matchit-v_%
-vnoremap <unique> <script> g% <Plug>Matchit-v_g%
-onoremap <unique> <script> %  <Plug>Matchit-o_%
-onoremap <unique> <script> g% <Plug>Matchit-o_g%
+" g% mappings
+nnoremap <silent> <script> <Plug>Matchit-g%  :<C-U>call <SID>Match_wrapper('',0,'n')<CR>
+vnoremap <silent> <script> <Plug>Matchit-g%  :<C-U>call <SID>Match_wrapper('',0,'v')<CR>m'gv``
+onoremap <silent> <script> <Plug>Matchit-g% v:<C-U>call <SID>Match_wrapper('',0,'o')<CR>
 
-" Analogues of [{ and ]} using matching patterns:
-nnoremap <silent> <script> <Plug>Matchit-n_[%  :<C-U>call <SID>MultiMatch("bW", "n")<CR>
-nnoremap <silent> <script> <Plug>Matchit-n_]%  :<C-U>call <SID>MultiMatch("W",  "n")<CR>
-vnoremap <silent> <script> <Plug>Matchit-v_[%  :<C-U>call <SID>MultiMatch("bW", "v")<CR>m'gv``
-vnoremap <silent> <script> <Plug>Matchit-v_]%  :<C-U>call <SID>MultiMatch("W",  "v")<CR>m'gv``
-onoremap <silent> <script> <Plug>Matchit-o_[% v:<C-U>call <SID>MultiMatch("bW", "o")<CR>
-onoremap <silent> <script> <Plug>Matchit-o_]% v:<C-U>call <SID>MultiMatch("W",  "o")<CR>
+" [% mappings
+nnoremap <silent> <script> <Plug>Matchit-[%  :<C-U>call <SID>MultiMatch("bW","n")<CR>
+vnoremap <silent> <script> <Plug>Matchit-[%  :<C-U>call <SID>MultiMatch("bW","v")<CR>m'gv``
+onoremap <silent> <script> <Plug>Matchit-[% v:<C-U>call <SID>MultiMatch("bW","o")<CR>
 
-nnoremap <script> <unique> [% <Plug>Matchit-n_[%
-nnoremap <script> <unique> ]% <Plug>Matchit-n_]%
-vnoremap <script> <unique> [% <Plug>Matchit-v_]%
-vnoremap <script> <unique> ]% <Plug>Matchit-v_[%
-onoremap <script> <unique> [% <Plug>Matchit-o_[%
-onoremap <script> <unique> ]% <Plug>Matchit-o_]%
+" ]% mappings
+nnoremap <silent> <script> <Plug>Matchit-]%  :<C-U>call <SID>MultiMatch("W","n")<CR>
+vnoremap <silent> <script> <Plug>Matchit-]%  :<C-U>call <SID>MultiMatch("W","v")<CR>m'gv``
+onoremap <silent> <script> <Plug>Matchit-]% v:<C-U>call <SID>MultiMatch("W","o")<CR>
 
-" text object:
+" a% text object:
 if has('textobjects')
-    vnoremap <script> <unique> a% <Esc>[%v]%
+    vnoremap <script> <Plug>Matchit-a% <Esc>[%v]%
+    onoremap <script> <Plug>Matchit-a% va%
 endif
+
+noremap <unique> <script> %  <Plug>Matchit-%
+noremap <unique> <script> g% <Plug>Matchit-g%
+noremap <unique> <script> [% <Plug>Matchit-[%
+noremap <unique> <script> ]% <Plug>Matchit-]%
+noremap <unique> <script> a% <Plug>Matchit-v_a%
 
 " Auto-complete mappings:  (not yet "ready for prime time")
 " TODO Read :help write-plugin for the "right" way to let the user
