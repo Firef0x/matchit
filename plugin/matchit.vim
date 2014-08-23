@@ -77,7 +77,7 @@ noremap <unique> <script> %  <Plug>Matchit-%
 noremap <unique> <script> g% <Plug>Matchit-g%
 noremap <unique> <script> [% <Plug>Matchit-[%
 noremap <unique> <script> ]% <Plug>Matchit-]%
-noremap <unique> <script> a% <Plug>Matchit-v_a%
+noremap <unique> <script> a% <Plug>Matchit-a%
 
 " Auto-complete mappings:  (not yet "ready for prime time")
 " TODO Read :help write-plugin for the "right" way to let the user
