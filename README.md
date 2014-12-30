@@ -13,13 +13,13 @@ Ada, ASP with VBS, Csh, DTD, Essbase, Fortran, HTML, JSP
 (I no longer keep track, so there may be others.)
 
 For more details, try `:help matchit` in Vim.
-The help documentation explains how to configure the script for 
+The help documentation explains how to configure the script for
 a new language and how to modify the defaults.
 
-**NOTE:** Since vim 6.0, matchit.vim has been included in the standard 
-vim distribution, under the macros/ directory; 
+**NOTE:** Since vim 6.0, matchit.vim has been included in the standard
+vim distribution, under the macros/ directory;
 
-The version here may be more recent, and easy for user to download and 
+The version here may be more recent, and easy for user to download and
 manage by plugin-managers
 
 ## Requirements
@@ -28,26 +28,30 @@ manage by plugin-managers
 
 ## Installation
 
-This plugin follows the standard runtime path structure, and as such it can 
+This plugin follows the standard runtime path structure, and as such it can
 be installed with a variety of plugin managers:
-    
-To install using [Vundle](https://github.com/gmarik/vundle):
 
-    # add this line to your .vimrc file
-    Bundle 'exvim/ex-matchit'
-
-To install using [Pathogen](https://github.com/tpope/vim-pathogen):
+### Install using [Pathogen](https://github.com/tpope/vim-pathogen):
 
     cd ~/.vim/bundle
-    git clone https://github.com/exvim/ex-matchit
+    git clone https://github.com/Firef0x/matchit.git
 
-To install using [NeoBundle](https://github.com/Shougo/neobundle.vim):
+### Install using [Vundle](https://github.com/gmarik/Vundle.vim):
 
     # add this line to your .vimrc file
-    NeoBundle 'exvim/ex-matchit'
+    Plugin 'Firef0x/matchit'
 
-[Download zip file](https://github.com/exvim/ex-matchit/archive/master.zip):
+### Install using [NeoBundle](https://github.com/Shougo/neobundle.vim):
+
+    # add this line to your .vimrc file
+    NeoBundle 'Firef0x/matchit'
+
+### Install manually
+
+Download [zip file](https://github.com/Firef0x/matchit/archive/master.zip):
 
     cd ~/.vim
-    unzip ex-matchit-master.zip
-    copy all of the files into your ~/.vim directory
+    unzip matchit-master.zip
+
+copy all of the files into your ~/.vim directory,
+then execute `:helptags` in Vim to refresh help tags.
